@@ -4,17 +4,17 @@ A cheatsheet for comparison between pycurl and requests.
 All the example code are run on Python 3+.
 
 ## Why do we do the Comparison?
-*requests* is popular among Python developers because of its human-friendly api.
-*pycurl*, on the other hand, is hard-coding but with better performance.
+**requests** is popular among Python developers because of its human-friendly api.
+**pycurl**, on the other hand, is hard-coding but with better performance.
 
-From the view of functionality, *requests* is dedicated to *HTTP protocol*;
-*pycurl*, instead, supports various protocols like *HTTP*, *SMTP*, *FTP* and so forth.
+From the view of functionality, **requests** is dedicated to **HTTP protocol**;
+**pycurl**, instead, supports various protocols like **HTTP**, **SMTP**, **FTP** and so forth.
 
 We do the comparison over the HTTP methods between two libraries especially for the apis both provide.
 
 ## How to Contribute?
 Feel free to contribute your knowledge of these two libraries.
-Just edit the *Functionality Comparison* part in the README.md file as the following format:
+Just edit the **Functionality Comparison** part in the README.md file as the following format:
 ### Functionality Name
 The description of functionality comparison result.
 requests:
