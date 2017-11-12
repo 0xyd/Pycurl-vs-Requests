@@ -1,7 +1,28 @@
 # Pycurl-vs-Requests
 A cheatsheet for comparison between pycurl and requests
 
-## Get
+All the example code are run on Python 3+.
+
+## How to Contribute?
+Feel free to contribute your knowledge of these two libraries.
+Just edit the *Functionality Comparison* part in the README.md file as the following format:
+### Functionality Name
+The description of functionality comparison result.
+requests:
+```python
+    print('Here is your example code of requests')
+```
+pycurl:
+```python
+    print('Here is your example code of pycurl')
+```
+
+
+## Functionality Comparison 
+### Get
+Requests provides a simple way to conduct Http GET; 
+In contrast, pycurl's method is not as friendly as requests'.
+
 requests:
 ```python
     # Send the requests
@@ -29,7 +50,10 @@ pycurl:
     c.getinfo(pycurl.CONTENT_TYPE) # 'text/html; charset=Big5'
 ```
 
-## Get Header of response
+### Get Header info of response
+requests has handle headers with an very elegant way.
+If you want to retreive headers information, a parsing function must be used.
+
 requests:
 ```python
     res.headers
@@ -55,7 +79,7 @@ pycurl:
     print(headers)
 ```
 
-## Set User-Agent 
+### Set User-Agent 
 requests:
 ```python
     headers = {}
@@ -76,7 +100,7 @@ pycurl:
     c.perform() 
 ```
 
-## Post
+### Post
 requests:
 ```python
     res = requests.post('https://httpbin.org/post', data={'user': 'yudazilian', 'password': '12345'})
@@ -90,7 +114,24 @@ pycurl:
     c.perform()
 ```
 
-## Set Socks Proxy
+### Cookie
+Requests' cookie accepts dict-like object; Pycurl however, uses the raw string.
+Besides, pycurl.Curl() function creates a session object just as what requests.session did.
+
+requests:
+```python
+    s = requests.session()
+    s.get('', cookies={'From': 'Ur Browser'})
+```
+
+pycurl:
+```python
+    c = pycurl.Curl()
+    c.setopt(pycurl.URL, '')
+    c.setopt('https://www.google.com', 'Raw Cookie String')
+```
+
+### Set Socks Proxy
 requests:
 ```python
     proxies = {
