@@ -90,5 +90,22 @@ pycurl:
     c.perform()
 ```
 
+## Set Socks Proxy
+requests:
+```python
+    proxies = {
+        'http':  'socks5://localhost:9050',
+        'https': 'socks5://localhost:9050')
+    }
+    requests.get('https://httpbin.org/post', proxies=proxies)
+```
+
+pycurl:
+```python
+    c = python.Curl()
+    c.setopt(pycurl.PROXY, 'socks5://localhost')
+    c.setopt(pycurl.PROXYPORT, 9050)
+    c.perform()
+```
 
 
