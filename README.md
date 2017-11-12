@@ -1,7 +1,16 @@
 # Pycurl-vs-Requests
-A cheatsheet for comparison between pycurl and requests
+A cheatsheet for comparison between pycurl and requests.
 
 All the example code are run on Python 3+.
+
+## Why do we do the Comparison?
+*requests* is popular among Python developers because of its human-friendly api.
+*pycurl*, on the other hand, is hard-coding but with better performance.
+
+From the view of functionality, *requests* is dedicated to *HTTP protocol*;
+*pycurl*, instead, supports various protocols like *HTTP*, *SMTP*, *FTP* and so forth.
+
+We do the comparison over the HTTP methods between two libraries especially for the apis both provide.
 
 ## How to Contribute?
 Feel free to contribute your knowledge of these two libraries.
@@ -16,7 +25,6 @@ pycurl:
 ```python
     print('Here is your example code of pycurl')
 ```
-
 
 ## Functionality Comparison 
 ### Get
@@ -132,6 +140,8 @@ pycurl:
 ```
 
 ### Set Socks Proxy
+Surprisingly, Pycurl's proxy setting is as simple as requests. 
+
 requests:
 ```python
     proxies = {
