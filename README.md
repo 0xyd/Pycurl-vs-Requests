@@ -159,5 +159,48 @@ pycurl:
     c.perform()
 ```
 
+### Choose SSL/TLS version
+Requests seems to use the latest SSL/TLS version automatically when users do operations through https. (Super handy!)
+Therefore, it seems it doesn't provide a direct way for developers to choose versions.
+
+To check which SSL/TLS version your requests are using, please check the ssl library:
+```
+    import ssl
+    ssl.OPENSSL_VERSION
+``` 
+If the ssl version you want does not included in the ssl libaray, please update your python ssl package.
+
+In pycurl, it allows developers to choose SSL/TLS version manually. (**I AM NOT SURE IF IT USES THE LATEST VERSION OF SSL/TLS or not AS DEFAULT**)
+The SSL versions which curl supports are list [here](https://curl.haxx.se/libcurl/c/CURLOPT_SSLVERSION.html)
+
+pycurl also provides the options such like "Should the peers provides the certification that curl verified?" and "Does the server provide the curl-authentic certifications or not?" 
+I guess these are all used as a protection from Man-in-middle attack.
+
+Form more information please take a look for below links:
+[CURLOPT_SSL_VERIFYHOST](https://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYHOST.html)
+[CURLOPT_SSL_VERIFYPEER](https://curl.haxx.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html)
+
+requests:
+```python
+    res = requests.get('https://www.google.com')
+```
+
+pycurl:
+```python
+    c = python.Curl()
+    c.setopt(pycurl.SSL_OPTIONS, pycurl.SSLVERSION_TLSv1_2) 
+    c.setopt(pycurl.SSL_VERIFYPEER, 1)
+    c.setopt(pycurl.SSL_VERIFYHOST, 2)
+```
+
+### Send a HEAD Request
+
+pycurl:
+```python
+    
+    curl.setopt(curl.NOBODY, True)
+```
+
+
 ## Lisence
 MIT
